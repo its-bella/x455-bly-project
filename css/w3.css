@@ -39,7 +39,6 @@ section {
   width: auto;
 }
 
-/* Group all right-side items and push them to the right */
 .nav-right {
   display: flex;
   align-items: center;
