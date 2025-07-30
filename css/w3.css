@@ -23,21 +23,27 @@ figure,
 header,
 main,
 menu,
-nav,
 section {
   display: block;
 }
 
 #myNavbar {
-  height: 70px; /* or any desired height */
+  height: 70px;
   display: flex;
-  align-items: center; /* vertically center content */
-  padding: 0 24px; /* optional left-right spacing */
+  align-items: center;
+  padding: 0 24px;
 }
 
 #myNavbar img {
-  height: 50px; /* control logo height */
+  height: 50px;
   width: auto;
+}
+
+/* Group all right-side items and push them to the right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 footer {
