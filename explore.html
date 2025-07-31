@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SHELF Beauty</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=inter"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- begin: add jquery script links to support for sortable table -->
+    <!-- jquery.min.js should be loaded before jquery.tablesorter.min.js because tablesorter requires basice jquery -->
+    <script
+      type="text/JavaScript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script
+      type="text/JavaScript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"
+    ></script>
+    <!-- end: add jquery script links to support for sortable table -->
+
+    <style>
+      body,
+      h4,
+      h5,
+      h6 {
+        font-family: "Inter", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Instrument Serif", serif;
+      }
+
+      body,
+      html {
+        height: 100%;
+        line-height: 1.8;
+      }
+
+      .product-button {
+        background-color: white;
+        color: rgb(26, 133, 183);
+        border: 2px solid rgba(26, 133, 183, 1);
+        padding: 12px;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .product-button:hover {
+        background-color: rgba(26, 133, 183, 1);
+        border: 2px solid rgba(26, 133, 183, 1);
+        color: white;
+      }
+
+      .cta-button {
+        background-color: #1a85b7 !important;
+        color: white !important;
+        border: none !important;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .cta-button:hover {
+        background-color: white !important;
+        color: #1a85b7 !important;
+        border: 2px solid #1a85b7 !important;
+      }
+
+      .custom-hover:hover {
+        background-color: rgba(144, 200, 226, 0.3) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <!-- Logo (left) -->
+        <a href="index.html" class="w3-bar-item w3-button">
+          <img
+            src="Photos/SHELF__BEAUTY_Logo.png"
+            alt="Home"
+            style="max-width: 150px; height: auto"
+          />
+        </a>
+        <!-- Right-side links -->
+        <div class="nav-right w3-hide-small">
+          <a href="shop.html" class="w3-bar-item w3-button">SHOP</a>
+          <a href="about.html" class="w3-bar-item w3-button">ABOUT</a>
+          <a href="explore.html" class="w3-bar-item w3-button">EXPLORE</a>
+          <a href="tutorial.html" class="w3-bar-item w3-button">TUTORIALS</a>
+          <a href="gallery.html" class="w3-bar-item w3-button">GALLERY</a>
+          <a class="w3-padding-small w3-hide-small">
+            <i class="fa fa-search"></i>
+          </a>
+          <a class="w3-padding-small w3-hide-small">
+            <i class="fa fa-shopping-basket"></i>
+          </a>
+        </div>
+
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+        <a
+          href="javascript:void(0)"
+          class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+          onclick="w3_open()"
+        >
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav
+      class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+      style="display: none"
+      id="mySidebar"
+    >
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-bar-item w3-button w3-large w3-padding-16"
+        >Close ×</a
+      >
+      <a href="shop.html" onclick="w3_close()" class="w3-bar-item w3-button"
+        >SHOP</a
+      >
+      <a href="about.html" onclick="w3_close()" class="w3-bar-item w3-button"
+        >ABOUT</a
+      >
+      <a href="explore.html" onclick="w3_close()" class="w3-bar-item w3-button"
+        >EXPLORE</a
+      >
+      <a href="tutorial.html" onclick="w3_close()" class="w3-bar-item w3-button"
+        >TUTORIALS</a
+      >
+      <a href="gallery.html" onclick="w3_close()" class="w3-bar-item w3-button"
+        >GALLERY</a
+      >
+    </nav>
+
+    <!-- Header with image -->
+    <header
+      style="
+        background-image: url('Photos/Skincare.jpg');
+        background-size: cover;
+        background-position: center 75%;
+        background-repeat: no-repeat;
+        height: 60vh;
+        position: relative;
+      "
+    >
+      <div class="w3-display-left w3-text-white" style="padding: 48px">
+        <h1 class="w3-jumbo w3-hide-small">Know Your Skin(care)</h1>
+        <h1 class="w3-xxlarge w3-hide-large w3-hide-medium">
+          Know Your Skin(care)
+        </h1>
+      </div>
+    </header>
+
+    <!-- Table Section -->
+    <div class="w3-container w3-padding-64">
+      <div class="w3-padding-large">
+        <h1 class="w3-center">Compare Skin Types and Ingredients</h1>
+        <table id="myTable" class="w3-table-all tablesorter">
+          <thead>
+            <tr style="background-color: #90c8e2; color: black">
+              <th>Skin Type</th>
+              <th>Concerns</th>
+              <th>Ingredients</th>
+              <th>Benefits</th>
+            </tr>
+          </thead>
+          <tr class="custom-hover">
+            <td>Dry</td>
+            <td>Dullness</td>
+            <td>Hyaluronic acid, Vitamin C</td>
+            <td>Brightening</td>
+          </tr>
+          <tr class="custom-hover">
+            <td>Oily</td>
+            <td>Pores</td>
+            <td>AHAs, BHAs, Oil-free</td>
+            <td>Moisturizing</td>
+          </tr>
+          <tr class="custom-hover">
+            <td>Combination</td>
+            <td>Acne</td>
+            <td>Salicylic Acid, Retinoid</td>
+            <td>Hydrating</td>
+          </tr>
+          <tr class="custom-hover">
+            <td>Sensitive</td>
+            <td>Redness</td>
+            <td>Fragrance-free, Antioxidants</td>
+            <td>Repairing</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="w3-center w3-padding-64"
+      style="
+        background-image: url('Photos/Gradient_Footer.png');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="w3-row-padding w3-section"
+        style="max-width: 800px; margin: auto; text-align: left"
+      >
+        <div class="w3-third">
+          <h5 style="color: black">Shop</h5>
+          <a href="#" class="w3-text-black w3-hover-text-grey">Lip Gloss</a
+          ><br />
+          <a href="#" class="w3-text-black w3-hover-text-grey">Lip Paints</a
+          ><br />
+          <a href="#" class="w3-text-black w3-hover-text-grey">Eye Shadows</a>
+        </div>
+        <div class="w3-third">
+          <h5 style="color: black">Company</h5>
+          <a href="#" class="w3-text-black w3-hover-text-grey">About Us</a
+          ><br />
+          <a href="#" class="w3-text-black w3-hover-text-grey">Careers</a><br />
+          <a href="#" class="w3-text-black w3-hover-text-grey">Press</a>
+        </div>
+        <div class="w3-third">
+          <h5 style="color: black">Support</h5>
+          <a href="#" class="w3-text-black w3-hover-text-grey">Contact</a><br />
+          <a href="#" class="w3-text-black w3-hover-text-grey">FAQs</a><br />
+          <a href="#" class="w3-text-black w3-hover-text-grey">Returns</a>
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+
+      <p style="color: black">
+        Powered by
+        <a
+          href="https://www.w3schools.com/w3css/default.asp"
+          title="W3.CSS"
+          target="_blank"
+          class="w3-hover-text-white"
+          >w3.css</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      var mySidebar = document.getElementById("mySidebar");
+
+      function w3_open() {
+        if (mySidebar.style.display === "block") {
+          mySidebar.style.display = "none";
+        } else {
+          mySidebar.style.display = "block";
+        }
+      }
+
+      // Close the sidebar with the close button
+      function w3_close() {
+        mySidebar.style.display = "none";
+      }
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $("#myTable").tablesorter(); // Initializes sorting
+      });
+    </script>
+  </body>
+</html>
